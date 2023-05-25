@@ -1,0 +1,8 @@
+*.ipregen.rpt
+*.v.bak
+*.BAK.qsys
+/db/
+*.log
+/incremental_db/
+/output_files/
+
