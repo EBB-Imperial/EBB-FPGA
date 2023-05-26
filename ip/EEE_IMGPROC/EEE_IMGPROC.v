@@ -68,6 +68,7 @@ parameter IMAGE_H = 11'd480;
 parameter MESSAGE_BUF_MAX = 256;
 parameter MSG_INTERVAL = 6;
 parameter BB_COL_DEFAULT = 24'h00ff00;
+parameter CH_COL_DEFAULT = 24'hff0000;
 
 
 wire [7:0]   red, green, blue, grey;
@@ -90,8 +91,10 @@ assign red_high  =  red_detect ? {8'hff, 8'h0, 8'h0} : {grey, grey, grey};
 // Show bounding box
 wire [23:0] new_image;
 wire bb_active;
+wire crosshair_active;
 assign bb_active = (x == left) | (x == right) | (y == top) | (y == bottom);
-assign new_image = bb_active ? bb_col : red_high;
+assign crosshair_active = (x == mid_x) | (y == mid_y);
+assign new_image = crosshair_active ? ch_col : (bb_active ? bb_col : red_high);
 
 // Switch output pixels depending on mode switch
 // Don't modify the start-of-packet word - it's a packet discriptor
@@ -137,7 +140,7 @@ end
 
 //Process bounding box at the end of the frame.
 reg [1:0] msg_state;
-reg [10:0] left, right, top, bottom;
+reg [10:0] left, right, top, bottom, mid_x, mid_y;
 reg [7:0] frame_count;
 always@(posedge clk) begin
 	if (eop & in_valid & packet_video) begin  //Ignore non-video packets
@@ -147,7 +150,8 @@ always@(posedge clk) begin
 		right <= x_max;
 		top <= y_min;
 		bottom <= y_max;
-		
+		mid_x <= (x_min + x_max) / 2;
+		mid_y <= (y_min + y_max) / 2;
 		
 		//Start message writer FSM once every MSG_INTERVAL frames, if there is room in the FIFO
 		frame_count <= frame_count - 1;
@@ -254,6 +258,7 @@ STREAM_REG #(.DATA_WIDTH(26)) out_reg (
 
 reg  [7:0]   reg_status;
 reg	[23:0]	bb_col;
+reg	[23:0]	ch_col;
 
 always @ (posedge clk)
 begin
@@ -261,6 +266,7 @@ begin
 	begin
 		reg_status <= 8'b0;
 		bb_col <= BB_COL_DEFAULT;
+		ch_col <= CH_COL_DEFAULT;
 	end
 	else begin
 		if(s_chipselect & s_write) begin
