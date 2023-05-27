@@ -13,7 +13,7 @@
    {
       datum _originalDeviceFamily
       {
-         value = "MAX 10";
+         value = "Cyclone V";
          type = "String";
       }
    }
@@ -21,7 +21,7 @@
    {
       datum _originalDeviceFamily
       {
-         value = "Cyclone V";
+         value = "MAX 10";
          type = "String";
       }
    }
@@ -942,7 +942,7 @@
   <parameter name="baud" value="115200" />
   <parameter name="clockRate" value="50000000" />
   <parameter name="dataBits" value="8" />
-  <parameter name="fixedBaud" value="true" />
+  <parameter name="fixedBaud" value="false" />
   <parameter name="parity" value="NONE" />
   <parameter name="simCharStream" value="" />
   <parameter name="simInteractiveInputEnable" value="false" />

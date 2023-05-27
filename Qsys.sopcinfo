@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="Qsys" kind="Qsys" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2023.05.27.22:54:27 -->
+ <!-- 2023.05.27.23:45:18 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1685224467</value>
+  <value>1685227517</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -13963,7 +13963,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.FIXED_BAUD</name>
-   <value>1</value>
+   <value>0</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.FREQ</name>
@@ -14039,7 +14039,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="fixedBaud">
    <type>boolean</type>
-   <value>true</value>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

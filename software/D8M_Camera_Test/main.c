@@ -4,10 +4,7 @@
 #include "mipi_camera_config.h"
 #include "mipi_bridge_config.h"
 
-#include <fcntl.h>
-#include <unistd.h>
-
-#include <altera_avalon_uart.h>
+#include <altera_avalon_uart_regs.h>
 
 #include "system.h"
 
@@ -96,8 +93,6 @@ bool MIPI_Init(void) {
 
 int main() {
 
-	fcntl(STDIN_FILENO, F_SETFL, O_NONBLOCK);
-
 	fprintf(stderr, "DE10-LITE D8M VGA Demo");
 	fprintf(stderr, "Imperial College EEE2 Project version");
 	IOWR(MIPI_PWDN_N_BASE, 0x00, 0x00);
@@ -125,21 +120,28 @@ int main() {
 	OV8865SetGain(GAIN_INIT);
 	OV8865SetExposure(EXPOSURE_INIT);
 
+	// Set ESP32 UART baud rate to 1M:
+	// https://www.intel.com/content/www/us/en/docs/programmable/683130/23-1/divisor-register-optional.html
+	// Baud Rate = (Clock frequency) / (divisor + 1)
+	// Clock = 50M
+	IOWR_ALTERA_AVALON_UART_DIVISOR(UART_0_BASE, 49);
+
 	while (1) {
 		static alt_u32 frame_count = 0;
 
-		fprintf(stderr, "Sending frame %lu\n", frame_count);
+		fprintf(stderr, "Sending frame %lu; lines:\n", frame_count);
 
 		for (alt_u16 line = 0; line < 480; line++) {
+			alt_u32 line_buffer[640];
 			for (alt_u16 x = 0; x < 640; x++) {
 				alt_u32 offset = line * 640 + x;
-				alt_u32 sdram_word = IORD(SDRAM_BASE, offset);
-				putchar((sdram_word >> 16) & 0xff);
-				putchar((sdram_word >> 8) & 0xff);
-				putchar((sdram_word) & 0xff);
+				line_buffer[x] = IORD(SDRAM_BASE, offset);
 			}
+			fwrite(line_buffer, sizeof(alt_u32), 640, stdout);
+			fprintf(stderr, "%u\t", line);
 		}
 
+		fprintf(stderr, "\n");
 		frame_count++;
 		usleep(1000 * 1000);
 	};

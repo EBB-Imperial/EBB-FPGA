@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>18.1</BspVersion>
-        <BspGeneratedTimeStamp>May 27, 2023 10:58:52 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1685224732195</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>May 27, 2023 11:46:44 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1685227604518</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/shuyuan/Documents/College/Project/EBB-FPGA/software/D8M_Camera_Test_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Qsys.sopcinfo</SopcDesignFile>
