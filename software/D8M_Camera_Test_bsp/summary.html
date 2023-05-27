@@ -22,13 +22,13 @@
 <td width="20%" bgcolor="#77BBFF">BSP Version:</td><td>18.1</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>May 26, 2023 4:08:25 PM</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>May 27, 2023 10:58:52 PM</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1685113705201</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1685224732195</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>/home/shuyuan/Documents/College/Project/EEE2Rover/DE10_LITE_D8M_VIP_16/software/D8M_Camera_Test_bsp</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>/home/shuyuan/Documents/College/Project/EBB-FPGA/software/D8M_Camera_Test_bsp</td>
 </tr>
 </table>
 <br>
@@ -38,49 +38,37 @@
 <th align="left" width="20%">Slave Descriptor</th><th align="left" width="40%">Address Range</th><th align="left" width="20%">Size</th><th align="left" width="20%">Attributes</th>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>jtag_uart</td><td>0x00041128 - 0x0004112F</td><td>8</td><td class="listing">printable</td>
+<td>jtag_uart</td><td>0x040410F8 - 0x040410FF</td><td>8</td><td class="listing">printable</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sysid_qsys</td><td>0x00041120 - 0x00041127</td><td>8</td><td class="listing">&nbsp;</td>
+<td>altpll_0</td><td>0x040410E0 - 0x040410EF</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>altpll_0</td><td>0x00041110 - 0x0004111F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>mipi_reset_n</td><td>0x040410D0 - 0x040410DF</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>led</td><td>0x00041100 - 0x0004110F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>mipi_pwdn_n</td><td>0x040410C0 - 0x040410CF</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sw</td><td>0x000410F0 - 0x000410FF</td><td>16</td><td class="listing">&nbsp;</td>
+<td>i2c_opencores_mipi</td><td>0x040410A0 - 0x040410BF</td><td>32</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>key</td><td>0x000410E0 - 0x000410EF</td><td>16</td><td class="listing">&nbsp;</td>
+<td>i2c_opencores_camera</td><td>0x04041080 - 0x0404109F</td><td>32</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>mipi_reset_n</td><td>0x000410D0 - 0x000410DF</td><td>16</td><td class="listing">&nbsp;</td>
+<td>timer</td><td>0x04041060 - 0x0404107F</td><td>32</td><td class="listing">timer</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>mipi_pwdn_n</td><td>0x000410C0 - 0x000410CF</td><td>16</td><td class="listing">&nbsp;</td>
+<td>uart_0</td><td>0x04041040 - 0x0404105F</td><td>32</td><td class="listing">printable</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>i2c_opencores_mipi</td><td>0x000410A0 - 0x000410BF</td><td>32</td><td class="listing">&nbsp;</td>
+<td>alt_vip_cl_vfb_0</td><td>0x04041000 - 0x0404103F</td><td>64</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>i2c_opencores_camera</td><td>0x00041080 - 0x0004109F</td><td>32</td><td class="listing">&nbsp;</td>
+<td>onchip_memory2_0</td><td>0x04020000 - 0x0403869F</td><td>100000</td><td class="listing">memory</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>TERASIC_AUTO_FOCUS_0</td><td>0x00041060 - 0x0004107F</td><td>32</td><td class="listing">&nbsp;</td>
-</tr>
-<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>timer</td><td>0x00041040 - 0x0004105F</td><td>32</td><td class="listing">timer</td>
-</tr>
-<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>EEE_IMGPROC_0</td><td>0x00041020 - 0x0004103F</td><td>32</td><td class="listing">&nbsp;</td>
-</tr>
-<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>uart_0</td><td>0x00041000 - 0x0004101F</td><td>32</td><td class="listing">printable</td>
-</tr>
-<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>onchip_memory2_0</td><td>0x00020000 - 0x0003FFFF</td><td>131072</td><td class="listing">memory</td>
+<td>sdram</td><td>0x00000000 - 0x03FFFFFF</td><td>67108864</td><td class="listing">memory</td>
 </tr>
 </table>
 <br>
@@ -1209,7 +1197,7 @@
 <td width="20%">Default Value:</td><td>-O0</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>-O0</td>
+<td width="20%">Value:</td><td>-O2</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>
@@ -2073,7 +2061,7 @@
 <td width="20%">Default Value:</td><td>none</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>jtag_uart</td>
+<td width="20%">Value:</td><td>uart_0</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>
@@ -2100,7 +2088,7 @@
 <td width="20%">Default Value:</td><td>none</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>jtag_uart</td>
+<td width="20%">Value:</td><td>uart_0</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>

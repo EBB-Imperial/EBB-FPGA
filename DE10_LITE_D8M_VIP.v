@@ -127,12 +127,7 @@ Qsys u0 (
 		.reset_reset_n                             (1'b1), 						//                            reset.reset_n
 		
 		.clk_sdram_clk                             (DRAM_CLK),					//                        clk_sdram.clk
-		.clk_vga_clk                               (disp_clk),					//                          clk_vga.clk
 		.d8m_xclkin_clk                            (MIPI_REFCLK),				//                       d8m_xclkin.clk
-		
-		.key_external_connection_export            (KEY),            			//          key_external_connection.export
-		.led_external_connection_export            (),            				//          led_external_connection.export
-		.sw_external_connection_export             (SW),             			//           sw_external_connection.export
 		
 		.i2c_opencores_camera_export_scl_pad_io    (CAMERA_I2C_SCL),    		//      i2c_opencores_camera_export.scl_pad_io
 		.i2c_opencores_camera_export_sda_pad_io    (CAMERA_I2C_SDA),    		//                                 .sda_pad_io
@@ -158,25 +153,9 @@ Qsys u0 (
 		.terasic_camera_0_conduit_end_LVAL         (MIPI_PIXEL_HS_d),         	//                                 .LVAL
 		.terasic_camera_0_conduit_end_PIXCLK       (~MIPI_PIXEL_CLK_d),        	//                                 .PIXCLK
 		
-		.terasic_auto_focus_0_conduit_vcm_i2c_sda  (CAMERA_I2C_SDA),  			//     terasic_auto_focus_0_conduit.vcm_i2c_sda
-		.terasic_auto_focus_0_conduit_clk50        (MAX10_CLK1_50),        		//                                 .clk50
-		.terasic_auto_focus_0_conduit_vcm_i2c_scl  (CAMERA_I2C_SCL),  			//                                 .vcm_i2c_scl
-		
-		.alt_vip_itc_0_clocked_video_vid_clk       (disp_clk),       			//      alt_vip_itc_0_clocked_video.vid_clk
-		.alt_vip_itc_0_clocked_video_vid_data      (disp_data),      			//                                 .vid_data
-		.alt_vip_itc_0_clocked_video_underflow     (),     						//                                 .underflow
-		.alt_vip_itc_0_clocked_video_vid_datavalid (), 							//                                 .vid_datavalid
-		.alt_vip_itc_0_clocked_video_vid_v_sync    (disp_vs),    				//                                 .vid_v_sync
-		.alt_vip_itc_0_clocked_video_vid_h_sync    (disp_hs),    				//                                 .vid_h_sync
-		.alt_vip_itc_0_clocked_video_vid_f         (),         					//                                 .vid_f
-		.alt_vip_itc_0_clocked_video_vid_h         (),         					//                                 .vid_h
-		.alt_vip_itc_0_clocked_video_vid_v         (),         					//                                 .vid_v
-		
 		.altpll_0_areset_conduit_export            (),            				//          altpll_0_areset_conduit.export
 		.altpll_0_locked_conduit_export            (),            				//          altpll_0_locked_conduit.export
 		.altpll_0_phasedone_conduit_export         (),         					//       altpll_0_phasedone_conduit.export		
-		
-		.eee_imgproc_0_conduit_mode_new_signal     (SW[0]),
 		
 		.uart_0_rx_tx_rxd                          (ARDUINO_IO[1]),                          //                     uart_0_rx_tx.rxd
 		.uart_0_rx_tx_txd                          (ARDUINO_IO[0])                           //

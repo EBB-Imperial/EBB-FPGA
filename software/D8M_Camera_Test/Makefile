@@ -143,7 +143,6 @@ ELF := D8M_Camera_Test.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS += I2C_core.c
-C_SRCS += auto_focus.c
 C_SRCS += main.c
 C_SRCS += mipi_bridge_config.c
 C_SRCS += mipi_camera_config.c

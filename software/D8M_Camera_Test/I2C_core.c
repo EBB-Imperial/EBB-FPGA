@@ -140,10 +140,10 @@ bool oc_i2c_uninit(alt_32 i2c_base)
     }
 
    if (bSuccess){
-//       printf("\I2C core  is disabled! \r\n");
+//       printf("I2C core  is disabled! \r\n");
    }
    else
-       printf("\I2C core is failed to disable! \r\n");
+       printf("I2C core is failed to disable! \r\n");
 
    return bSuccess;
 

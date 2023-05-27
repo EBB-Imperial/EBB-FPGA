@@ -138,7 +138,7 @@ BSP_CFLAGS_DEBUG = -g
 # compiler optimization can remove variables and produce non-sequential 
 # execution of code while debugging. This setting defines the value of 
 # BSP_CFLAGS_OPTIMIZATION in Makefile. 
-BSP_CFLAGS_OPTIMIZATION = -O0
+BSP_CFLAGS_OPTIMIZATION = -O2
 
 # C/C++ compiler warning level. "-Wall" is commonly used.This setting defines 
 # the value of BSP_CFLAGS_WARNINGS in Makefile. 
@@ -208,6 +208,17 @@ GENERATED_C_LIB_SRCS += alt_sys_init.c
 # used to build each file.
 #-------------------------------------------------------------------------------
 
+# alt_vip_cl_vfb_driver sources root 
+alt_vip_cl_vfb_driver_SRCS_ROOT := drivers/vip
+
+# alt_vip_cl_vfb_driver sources 
+alt_vip_cl_vfb_driver_CPP_LIB_SRCS := \
+	$(alt_vip_cl_vfb_driver_SRCS_ROOT)/../../drivers/vip/src/VipUtil.cpp \
+	$(alt_vip_cl_vfb_driver_SRCS_ROOT)/../../drivers/vip/src/VipCore.cpp \
+	$(alt_vip_cl_vfb_driver_SRCS_ROOT)/../../drivers/vip/src/Frame_Reader.cpp \
+	$(alt_vip_cl_vfb_driver_SRCS_ROOT)/../../drivers/vip/src/Frame_Writer.cpp \
+	$(alt_vip_cl_vfb_driver_SRCS_ROOT)/../../drivers/vip/src/Frame_Buffer.cpp
+
 # altera_avalon_jtag_uart_driver sources root 
 altera_avalon_jtag_uart_driver_SRCS_ROOT := drivers
 
@@ -223,13 +234,6 @@ altera_avalon_jtag_uart_driver_C_LIB_SRCS := \
 altera_avalon_pio_driver_SRCS_ROOT := drivers
 
 # altera_avalon_pio_driver sources 
-# altera_avalon_sysid_qsys_driver sources root 
-altera_avalon_sysid_qsys_driver_SRCS_ROOT := drivers
-
-# altera_avalon_sysid_qsys_driver sources 
-altera_avalon_sysid_qsys_driver_C_LIB_SRCS := \
-	$(altera_avalon_sysid_qsys_driver_SRCS_ROOT)/src/altera_avalon_sysid_qsys.c
-
 # altera_avalon_timer_driver sources root 
 altera_avalon_timer_driver_SRCS_ROOT := drivers
 
@@ -350,7 +354,6 @@ hal_C_LIB_SRCS := \
 # Assemble all component C source files 
 COMPONENT_C_LIB_SRCS += \
 	$(altera_avalon_jtag_uart_driver_C_LIB_SRCS) \
-	$(altera_avalon_sysid_qsys_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
 	$(altera_avalon_uart_driver_C_LIB_SRCS) \
 	$(altera_nios2_gen2_hal_driver_C_LIB_SRCS) \
@@ -362,6 +365,7 @@ COMPONENT_ASM_LIB_SRCS += \
 
 # Assemble all component C++ source files 
 COMPONENT_CPP_LIB_SRCS += \
+	$(alt_vip_cl_vfb_driver_CPP_LIB_SRCS)
 
 #END MANAGED
 

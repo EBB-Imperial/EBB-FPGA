@@ -28,10 +28,10 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         Qsys_mm_interconnect_0_cmd_demux_001
-//   ST_DATA_W:           97
-//   ST_CHANNEL_W:        16
-//   NUM_OUTPUTS:         2
-//   VALID_WIDTH:         16
+//   ST_DATA_W:           115
+//   ST_CHANNEL_W:        12
+//   NUM_OUTPUTS:         1
+//   VALID_WIDTH:         1
 // ------------------------------------------
 
 //------------------------------------------
@@ -45,9 +45,9 @@ module Qsys_mm_interconnect_0_cmd_demux_001
     // -------------------
     // Sink
     // -------------------
-    input  [16-1      : 0]   sink_valid,
-    input  [97-1    : 0]   sink_data, // ST_DATA_W=97
-    input  [16-1 : 0]   sink_channel, // ST_CHANNEL_W=16
+    input  [1-1      : 0]   sink_valid,
+    input  [115-1    : 0]   sink_data, // ST_DATA_W=115
+    input  [12-1 : 0]   sink_channel, // ST_CHANNEL_W=12
     input                         sink_startofpacket,
     input                         sink_endofpacket,
     output                        sink_ready,
@@ -56,18 +56,11 @@ module Qsys_mm_interconnect_0_cmd_demux_001
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [97-1    : 0] src0_data, // ST_DATA_W=97
-    output reg [16-1 : 0] src0_channel, // ST_CHANNEL_W=16
+    output reg [115-1    : 0] src0_data, // ST_DATA_W=115
+    output reg [12-1 : 0] src0_channel, // ST_CHANNEL_W=12
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
-
-    output reg                      src1_valid,
-    output reg [97-1    : 0] src1_data, // ST_DATA_W=97
-    output reg [16-1 : 0] src1_channel, // ST_CHANNEL_W=16
-    output reg                      src1_startofpacket,
-    output reg                      src1_endofpacket,
-    input                           src1_ready,
 
 
     // -------------------
@@ -80,7 +73,7 @@ module Qsys_mm_interconnect_0_cmd_demux_001
 
 );
 
-    localparam NUM_OUTPUTS = 2;
+    localparam NUM_OUTPUTS = 1;
     wire [NUM_OUTPUTS - 1 : 0] ready_vector;
 
     // -------------------
@@ -92,14 +85,7 @@ module Qsys_mm_interconnect_0_cmd_demux_001
         src0_endofpacket   = sink_endofpacket;
         src0_channel       = sink_channel >> NUM_OUTPUTS;
 
-        src0_valid         = sink_channel[0] && sink_valid[0];
-
-        src1_data          = sink_data;
-        src1_startofpacket = sink_startofpacket;
-        src1_endofpacket   = sink_endofpacket;
-        src1_channel       = sink_channel >> NUM_OUTPUTS;
-
-        src1_valid         = sink_channel[1] && sink_valid[1];
+        src0_valid         = sink_channel[0] && sink_valid;
 
     end
 
@@ -107,9 +93,8 @@ module Qsys_mm_interconnect_0_cmd_demux_001
     // Backpressure
     // -------------------
     assign ready_vector[0] = src0_ready;
-    assign ready_vector[1] = src1_ready;
 
-    assign sink_ready = |(sink_channel & {{14{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
+    assign sink_ready = |(sink_channel & {{11{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
 
 endmodule
 
