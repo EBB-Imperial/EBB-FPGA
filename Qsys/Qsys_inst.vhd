@@ -20,8 +20,6 @@
 			i2c_opencores_camera_export_sda_pad_io    : inout std_logic                     := 'X';             -- sda_pad_io
 			i2c_opencores_mipi_export_scl_pad_io      : inout std_logic                     := 'X';             -- scl_pad_io
 			i2c_opencores_mipi_export_sda_pad_io      : inout std_logic                     := 'X';             -- sda_pad_io
-			key_external_connection_export            : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- export
-			led_external_connection_export            : out   std_logic_vector(9 downto 0);                     -- export
 			mipi_pwdn_n_external_connection_export    : out   std_logic;                                        -- export
 			mipi_reset_n_external_connection_export   : out   std_logic;                                        -- export
 			reset_reset_n                             : in    std_logic                     := 'X';             -- reset_n
@@ -34,7 +32,6 @@
 			sdram_wire_dqm                            : out   std_logic_vector(1 downto 0);                     -- dqm
 			sdram_wire_ras_n                          : out   std_logic;                                        -- ras_n
 			sdram_wire_we_n                           : out   std_logic;                                        -- we_n
-			sw_external_connection_export             : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
 			terasic_auto_focus_0_conduit_vcm_i2c_sda  : inout std_logic                     := 'X';             -- vcm_i2c_sda
 			terasic_auto_focus_0_conduit_clk50        : in    std_logic                     := 'X';             -- clk50
 			terasic_auto_focus_0_conduit_vcm_i2c_scl  : inout std_logic                     := 'X';             -- vcm_i2c_scl
@@ -69,8 +66,6 @@
 			i2c_opencores_camera_export_sda_pad_io    => CONNECTED_TO_i2c_opencores_camera_export_sda_pad_io,    --                                 .sda_pad_io
 			i2c_opencores_mipi_export_scl_pad_io      => CONNECTED_TO_i2c_opencores_mipi_export_scl_pad_io,      --        i2c_opencores_mipi_export.scl_pad_io
 			i2c_opencores_mipi_export_sda_pad_io      => CONNECTED_TO_i2c_opencores_mipi_export_sda_pad_io,      --                                 .sda_pad_io
-			key_external_connection_export            => CONNECTED_TO_key_external_connection_export,            --          key_external_connection.export
-			led_external_connection_export            => CONNECTED_TO_led_external_connection_export,            --          led_external_connection.export
 			mipi_pwdn_n_external_connection_export    => CONNECTED_TO_mipi_pwdn_n_external_connection_export,    --  mipi_pwdn_n_external_connection.export
 			mipi_reset_n_external_connection_export   => CONNECTED_TO_mipi_reset_n_external_connection_export,   -- mipi_reset_n_external_connection.export
 			reset_reset_n                             => CONNECTED_TO_reset_reset_n,                             --                            reset.reset_n
@@ -83,7 +78,6 @@
 			sdram_wire_dqm                            => CONNECTED_TO_sdram_wire_dqm,                            --                                 .dqm
 			sdram_wire_ras_n                          => CONNECTED_TO_sdram_wire_ras_n,                          --                                 .ras_n
 			sdram_wire_we_n                           => CONNECTED_TO_sdram_wire_we_n,                           --                                 .we_n
-			sw_external_connection_export             => CONNECTED_TO_sw_external_connection_export,             --           sw_external_connection.export
 			terasic_auto_focus_0_conduit_vcm_i2c_sda  => CONNECTED_TO_terasic_auto_focus_0_conduit_vcm_i2c_sda,  --     terasic_auto_focus_0_conduit.vcm_i2c_sda
 			terasic_auto_focus_0_conduit_clk50        => CONNECTED_TO_terasic_auto_focus_0_conduit_clk50,        --                                 .clk50
 			terasic_auto_focus_0_conduit_vcm_i2c_scl  => CONNECTED_TO_terasic_auto_focus_0_conduit_vcm_i2c_scl,  --                                 .vcm_i2c_scl

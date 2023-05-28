@@ -20,8 +20,6 @@ module Qsys (
 	i2c_opencores_camera_export_sda_pad_io,
 	i2c_opencores_mipi_export_scl_pad_io,
 	i2c_opencores_mipi_export_sda_pad_io,
-	key_external_connection_export,
-	led_external_connection_export,
 	mipi_pwdn_n_external_connection_export,
 	mipi_reset_n_external_connection_export,
 	reset_reset_n,
@@ -34,7 +32,6 @@ module Qsys (
 	sdram_wire_dqm,
 	sdram_wire_ras_n,
 	sdram_wire_we_n,
-	sw_external_connection_export,
 	terasic_auto_focus_0_conduit_vcm_i2c_sda,
 	terasic_auto_focus_0_conduit_clk50,
 	terasic_auto_focus_0_conduit_vcm_i2c_scl,
@@ -65,8 +62,6 @@ module Qsys (
 	inout		i2c_opencores_camera_export_sda_pad_io;
 	inout		i2c_opencores_mipi_export_scl_pad_io;
 	inout		i2c_opencores_mipi_export_sda_pad_io;
-	input	[1:0]	key_external_connection_export;
-	output	[9:0]	led_external_connection_export;
 	output		mipi_pwdn_n_external_connection_export;
 	output		mipi_reset_n_external_connection_export;
 	input		reset_reset_n;
@@ -79,7 +74,6 @@ module Qsys (
 	output	[1:0]	sdram_wire_dqm;
 	output		sdram_wire_ras_n;
 	output		sdram_wire_we_n;
-	input	[9:0]	sw_external_connection_export;
 	inout		terasic_auto_focus_0_conduit_vcm_i2c_sda;
 	input		terasic_auto_focus_0_conduit_clk50;
 	inout		terasic_auto_focus_0_conduit_vcm_i2c_scl;

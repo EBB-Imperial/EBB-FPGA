@@ -5,4 +5,4 @@
 *.log
 /incremental_db/
 /output_files/
-
+/Qsys/synthesis

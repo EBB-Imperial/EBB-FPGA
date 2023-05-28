@@ -146,21 +146,6 @@ SOPC_NAME := Qsys
 # setting SOPC_SIMULATION_ENABLED is false
 ELF_PATCH_FLAG  += --simulation_enabled false
 
-# The SOPC System ID 
-# setting SOPC_SYSID is 0
-SOPC_SYSID_FLAG += --id=0
-ELF_PATCH_FLAG  += --id 0
-
-# The SOPC System ID Base Address 
-# setting SOPC_SYSID_BASE_ADDRESS is 0x410e0
-SOPC_SYSID_FLAG += --sidp=0x410e0
-ELF_PATCH_FLAG  += --sidp 0x410e0
-
-# The SOPC Timestamp 
-# setting SOPC_TIMESTAMP is 1649356431
-SOPC_SYSID_FLAG += --timestamp=1649356431
-ELF_PATCH_FLAG  += --timestamp 1649356431
-
 # Enable JTAG UART driver to recover when host is inactive causing buffer to 
 # full without returning error. Printf will not fail with this recovery. none 
 # setting altera_avalon_jtag_uart_driver.enable_jtag_uart_ignore_fifo_full_error is false
@@ -358,13 +343,13 @@ ELF_PATCH_FLAG  += --stderr_dev jtag_uart
 
 # Slave descriptor of STDIN character-mode device. This setting is used by the 
 # ALT_STDIN family of defines in system.h. none 
-# setting hal.stdin is jtag_uart
-ELF_PATCH_FLAG  += --stdin_dev jtag_uart
+# setting hal.stdin is uart_0
+ELF_PATCH_FLAG  += --stdin_dev uart_0
 
 # Slave descriptor of STDOUT character-mode device. This setting is used by the 
 # ALT_STDOUT family of defines in system.h. none 
-# setting hal.stdout is jtag_uart
-ELF_PATCH_FLAG  += --stdout_dev jtag_uart
+# setting hal.stdout is uart_0
+ELF_PATCH_FLAG  += --stdout_dev uart_0
 
 
 #------------------------------------------------------------------------------
