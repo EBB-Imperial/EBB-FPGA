@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>18.1</BspVersion>
-        <BspGeneratedTimeStamp>May 28, 2023 4:10:54 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1685286654697</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>May 28, 2023 5:13:00 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1685290380410</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/shuyuan/Documents/College/Project/EBB-FPGA/software/D8M_Camera_Test_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Qsys.sopcinfo</SopcDesignFile>
@@ -878,7 +878,7 @@
                 <SettingName>altera_avalon_uart_driver.enable_small_driver</SettingName>
                 <Identifier>ALTERA_AVALON_UART_SMALL</Identifier>
                 <Type>BooleanDefineOnly</Type>
-                <Value>false</Value>
+                <Value>true</Value>
                 <DefaultValue>false</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Small-footprint (polled mode) driver</Description>

@@ -8,7 +8,7 @@
 #include <altera_avalon_uart_regs.h>
 #include <string.h>
 
-#define EXPOSURE_INIT 0x001000
+#define EXPOSURE_INIT 0x000800
 #define EXPOSURE_STEP 0x100
 #define GAIN_INIT 0x040
 #define GAIN_STEP 0x040
@@ -102,6 +102,8 @@ bool MIPI_Init(void) {
 	return bSuccess;
 }
 
+alt_u16 rgb888_to_rgb565(alt_u32 rgb888);
+
 int main() {
 
 	fprintf(stderr, "DE10-LITE D8M VGA Demo\n");
@@ -138,18 +140,31 @@ int main() {
 	IOWR_ALTERA_AVALON_UART_DIVISOR(UART_0_BASE, 49);
 
 	while (1) {
-		static alt_u32 frame_counter = 0;
-		fprintf(stderr, "\nSending frame %lu: ", frame_counter);
 
-		for (alt_u16 y = 0; y < 480; y += 2) {
+		// Output image dimensions: 320 * 235
+
+		static alt_u32 frame_counter = 0;
+		fprintf(stderr, "\n\nSending frame %lu: ", frame_counter);
+		fputs("UUUUUUUUUUUUUUUw", stdout); // Sync word
+
+		for (alt_u16 y = 5; y < 476; y += 2) {
 			fprintf(stderr, "%u ", y);
 
+			alt_u16 line[320];
 			for (alt_u16 x = 0; x < 640; x += 2) {
-				alt_u32 pixel_data = IORD(SDRAM_BASE, y * 640 + x);
-				fwrite(&pixel_data, sizeof(pixel_data), 1, stdout);
+				alt_u32 pixel_offset = y * 640 + x;
+				alt_u32 pixel = IORD(SDRAM_BASE, pixel_offset);
+				line[x / 2] = rgb888_to_rgb565(pixel);
 			}
+			fwrite(&line, sizeof(line), 1, stdout);
 		}
 
 		frame_counter++;
+		usleep(100 * 1000);
 	}
+}
+
+inline alt_u16 rgb888_to_rgb565(alt_u32 rgb888)
+{
+	return ((rgb888 & 0xf80000) >> 8) | ((rgb888 & 0x00fc00) >> 5) | ((rgb888 & 0x0000f8) >> 3);
 }
