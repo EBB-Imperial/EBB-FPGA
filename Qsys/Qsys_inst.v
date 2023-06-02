@@ -39,6 +39,8 @@
 		.terasic_camera_0_conduit_end_LVAL         (<connected-to-terasic_camera_0_conduit_end_LVAL>),         //                                 .LVAL
 		.terasic_camera_0_conduit_end_PIXCLK       (<connected-to-terasic_camera_0_conduit_end_PIXCLK>),       //                                 .PIXCLK
 		.uart_0_rx_tx_rxd                          (<connected-to-uart_0_rx_tx_rxd>),                          //                     uart_0_rx_tx.rxd
-		.uart_0_rx_tx_txd                          (<connected-to-uart_0_rx_tx_txd>)                           //                                 .txd
+		.uart_0_rx_tx_txd                          (<connected-to-uart_0_rx_tx_txd>),                          //                                 .txd
+		.uart_0_rx_tx_cts_n                        (<connected-to-uart_0_rx_tx_cts_n>),                        //                                 .cts_n
+		.uart_0_rx_tx_rts_n                        (<connected-to-uart_0_rx_tx_rts_n>)                         //                                 .rts_n
 	);
 

@@ -8,10 +8,9 @@
 #include <altera_avalon_uart_regs.h>
 #include <string.h>
 
-#define EXPOSURE_INIT 0x000800
-#define EXPOSURE_STEP 0x100
-#define GAIN_INIT 0x040
-#define GAIN_STEP 0x040
+#define EXPOSURE_INIT 0x001000
+#define GAIN_INIT 0x120
+#define FOCUS_INIT 150
 #define DEFAULT_LEVEL 3
 
 #define MIPI_REG_PHYClkCtl		0x0056
@@ -85,19 +84,10 @@ bool MIPI_Init(void) {
 
 	usleep(500 * 1000);
 
-//	bSuccess = oc_i2c_init_ex(I2C_OPENCORES_CAMERA_BASE, 50*1000*1000,400*1000); //I2C: 400K
-//	if (!bSuccess)
-//		fprintf(stderr, "failed to init MIPI- Camera i2c\r\n");
-
 	MipiCameraInit();
 	MIPI_BIN_LEVEL(DEFAULT_LEVEL);
-//    OV8865_FOCUS_Move_to(340);
-
-//    oc_i2c_uninit(I2C_OPENCORES_CAMERA_BASE);  // Release I2C bus , due to two I2C master shared!
 
 	usleep(1000);
-
-//    oc_i2c_uninit(I2C_OPENCORES_MIPI_BASE);
 
 	return bSuccess;
 }
@@ -130,11 +120,9 @@ int main() {
 	usleep(50 * 1000);
 	mipi_show_error_info();
 
-	alt_u32 exposureTime = EXPOSURE_INIT;
-	alt_u16 gain = GAIN_INIT;
-
-	OV8865SetExposure(exposureTime);
-	OV8865SetGain(gain);
+	OV8865SetExposure(EXPOSURE_INIT);
+	OV8865SetGain(GAIN_INIT);
+	OV8865_FOCUS_Move_to(FOCUS_INIT);
 
 	// Set ESP32 UART baud rate to 1M
 	IOWR_ALTERA_AVALON_UART_DIVISOR(UART_0_BASE, 49);
@@ -152,7 +140,7 @@ int main() {
 
 			alt_u16 line[320];
 			for (alt_u16 x = 0; x < 640; x += 2) {
-				alt_u32 pixel_offset = y * 640 + x;
+				alt_u32 pixel_offset = y * 640 + x + 5;
 				alt_u32 pixel = IORD(SDRAM_BASE, pixel_offset);
 				line[x / 2] = rgb888_to_rgb565(pixel);
 			}

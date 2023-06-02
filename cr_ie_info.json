@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "linux64",
+		"os_name" : "Arch Linux",
+		"os_version" : ""
+	},
+	"error" : {
+		"executable" : "quartus",
+		"comment" : "not_applicable",
+		"error_message" : "Segment Violation at 0xa0ffffffe8",
+		"source_file" : "unknown",
+		"line" : "0",
+		"stack_trace" : "\t0x7f4d3c812147: ccl_fio + 0x12147 (_ZN8FIO_PATH45is_path_length_within_operating_system_limitsERKSs + 0x3)\n\t0x7f4d3c812170: ccl_fio + 0x12170 (_ZNK8FIO_PATH8fullpathEv + 0x1c)\n\t0x7f4cd1841e63: pgm_pgme + 0x41e63 (_ZN15PGME_PROGRAMMER16engage_ocpp_modeEPSt6vectorIP17PGM_CHAIN_ELEMENTSaIS2_EE + 0xa3f)\n\t0x7f4cd10342e3: pgm_pgmwq + 0x342e3 (_ZN17PGMWQ_OCPP_THREAD3runEv + 0x11)\n\t0x7f4d6bc8fbc2: QtCore.so.4 + 0x8fbc2\n\t0x7f4d83c9d44b: c.so.6 + 0x8744b\n\t0x7f4d83d20e40: c.so.6 + 0x10ae40\n",
+		"subsystem" : "unknown"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "18.1.0",
+		"build" : "625",
+		"edition" : "Lite Edition"
+	}
+}

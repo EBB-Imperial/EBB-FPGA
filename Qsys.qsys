@@ -110,12 +110,12 @@
       }
       datum megawizard_uipreferences
       {
-         value = "{output_directory=F:\\Ed\\Stuff\\EEE2Rover\\DE10_LITE_D8M_VIP_16, output_language=VERILOG}";
+         value = "{}";
          type = "String";
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -464,7 +464,7 @@
  </module>
  <module name="alt_vip_vfb_0" kind="alt_vip_vfb" version="13.1" enabled="1">
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
-  <parameter name="PARAMETERISATION"><![CDATA[<frameBufferParams><VFB_NAME>MyFrameBuffer</VFB_NAME><VFB_MAX_WIDTH>640</VFB_MAX_WIDTH><VFB_MAX_HEIGHT>480</VFB_MAX_HEIGHT><VFB_BPS>8</VFB_BPS><VFB_CHANNELS_IN_SEQ>1</VFB_CHANNELS_IN_SEQ><VFB_CHANNELS_IN_PAR>3</VFB_CHANNELS_IN_PAR><VFB_WRITER_RUNTIME_CONTROL>false</VFB_WRITER_RUNTIME_CONTROL><VFB_DROP_FRAMES>true</VFB_DROP_FRAMES><VFB_READER_RUNTIME_CONTROL>0</VFB_READER_RUNTIME_CONTROL><VFB_REPEAT_FRAMES>true</VFB_REPEAT_FRAMES><VFB_FRAMEBUFFERS_ADDR>00000000</VFB_FRAMEBUFFERS_ADDR><VFB_MEM_PORT_WIDTH>32</VFB_MEM_PORT_WIDTH><VFB_MEM_MASTERS_USE_SEPARATE_CLOCK>false</VFB_MEM_MASTERS_USE_SEPARATE_CLOCK><VFB_RDATA_FIFO_DEPTH>1024</VFB_RDATA_FIFO_DEPTH><VFB_RDATA_BURST_TARGET>4</VFB_RDATA_BURST_TARGET><VFB_WDATA_FIFO_DEPTH>1024</VFB_WDATA_FIFO_DEPTH><VFB_WDATA_BURST_TARGET>4</VFB_WDATA_BURST_TARGET><VFB_MAX_NUMBER_PACKETS>1</VFB_MAX_NUMBER_PACKETS><VFB_MAX_SYMBOLS_IN_PACKET>10</VFB_MAX_SYMBOLS_IN_PACKET><VFB_INTERLACED_SUPPORT>0</VFB_INTERLACED_SUPPORT><VFB_CONTROLLED_DROP_REPEAT>0</VFB_CONTROLLED_DROP_REPEAT><VFB_BURST_ALIGNMENT>0</VFB_BURST_ALIGNMENT><VFB_DROP_INVALID_FIELDS>false</VFB_DROP_INVALID_FIELDS></frameBufferParams>]]></parameter>
+  <parameter name="PARAMETERISATION"><![CDATA[<frameBufferParams><VFB_NAME>MyFrameBuffer</VFB_NAME><VFB_MAX_WIDTH>640</VFB_MAX_WIDTH><VFB_MAX_HEIGHT>480</VFB_MAX_HEIGHT><VFB_BPS>8</VFB_BPS><VFB_CHANNELS_IN_SEQ>1</VFB_CHANNELS_IN_SEQ><VFB_CHANNELS_IN_PAR>3</VFB_CHANNELS_IN_PAR><VFB_WRITER_RUNTIME_CONTROL>false</VFB_WRITER_RUNTIME_CONTROL><VFB_DROP_FRAMES>true</VFB_DROP_FRAMES><VFB_READER_RUNTIME_CONTROL>false</VFB_READER_RUNTIME_CONTROL><VFB_REPEAT_FRAMES>true</VFB_REPEAT_FRAMES><VFB_FRAMEBUFFERS_ADDR>00000000</VFB_FRAMEBUFFERS_ADDR><VFB_MEM_PORT_WIDTH>32</VFB_MEM_PORT_WIDTH><VFB_MEM_MASTERS_USE_SEPARATE_CLOCK>false</VFB_MEM_MASTERS_USE_SEPARATE_CLOCK><VFB_RDATA_FIFO_DEPTH>1024</VFB_RDATA_FIFO_DEPTH><VFB_RDATA_BURST_TARGET>16</VFB_RDATA_BURST_TARGET><VFB_WDATA_FIFO_DEPTH>1024</VFB_WDATA_FIFO_DEPTH><VFB_WDATA_BURST_TARGET>16</VFB_WDATA_BURST_TARGET><VFB_MAX_NUMBER_PACKETS>1</VFB_MAX_NUMBER_PACKETS><VFB_MAX_SYMBOLS_IN_PACKET>10</VFB_MAX_SYMBOLS_IN_PACKET><VFB_INTERLACED_SUPPORT>0</VFB_INTERLACED_SUPPORT><VFB_CONTROLLED_DROP_REPEAT>0</VFB_CONTROLLED_DROP_REPEAT><VFB_BURST_ALIGNMENT>false</VFB_BURST_ALIGNMENT><VFB_DROP_INVALID_FIELDS>false</VFB_DROP_INVALID_FIELDS></frameBufferParams>]]></parameter>
  </module>
  <module name="altpll_0" kind="altpll" version="18.1" enabled="1">
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
@@ -658,14 +658,14 @@
   <parameter name="avalonSpec" value="2.0" />
   <parameter name="clkFreq" value="50000000" />
   <parameter name="hubInstanceID" value="0" />
-  <parameter name="readBufferDepth" value="512" />
+  <parameter name="readBufferDepth" value="64" />
   <parameter name="readIRQThreshold" value="8" />
   <parameter name="simInputCharacterStream" value="" />
   <parameter name="simInteractiveOptions">NO_INTERACTIVE_WINDOWS</parameter>
-  <parameter name="useRegistersForReadBuffer" value="false" />
-  <parameter name="useRegistersForWriteBuffer" value="false" />
+  <parameter name="useRegistersForReadBuffer" value="true" />
+  <parameter name="useRegistersForWriteBuffer" value="true" />
   <parameter name="useRelativePathForSimFile" value="false" />
-  <parameter name="writeBufferDepth" value="512" />
+  <parameter name="writeBufferDepth" value="64" />
   <parameter name="writeIRQThreshold" value="8" />
  </module>
  <module
@@ -967,7 +967,7 @@
   <parameter name="simTrueBaud" value="false" />
   <parameter name="stopBits" value="1" />
   <parameter name="syncRegDepth" value="2" />
-  <parameter name="useCtsRts" value="false" />
+  <parameter name="useCtsRts" value="true" />
   <parameter name="useEopRegister" value="false" />
   <parameter name="useRelativePathForSimFile" value="false" />
  </module>

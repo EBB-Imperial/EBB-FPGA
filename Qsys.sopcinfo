@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="Qsys" kind="Qsys" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2023.05.28.17:00:50 -->
+ <!-- 2023.06.02.15:22:09 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1685289650</value>
+  <value>1685715728</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -2857,7 +2857,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="PARAMETERISATION">
    <type>java.lang.String</type>
-   <value><![CDATA[<frameBufferParams><VFB_NAME>MyFrameBuffer</VFB_NAME><VFB_MAX_WIDTH>640</VFB_MAX_WIDTH><VFB_MAX_HEIGHT>480</VFB_MAX_HEIGHT><VFB_BPS>8</VFB_BPS><VFB_CHANNELS_IN_SEQ>1</VFB_CHANNELS_IN_SEQ><VFB_CHANNELS_IN_PAR>3</VFB_CHANNELS_IN_PAR><VFB_WRITER_RUNTIME_CONTROL>false</VFB_WRITER_RUNTIME_CONTROL><VFB_DROP_FRAMES>true</VFB_DROP_FRAMES><VFB_READER_RUNTIME_CONTROL>0</VFB_READER_RUNTIME_CONTROL><VFB_REPEAT_FRAMES>true</VFB_REPEAT_FRAMES><VFB_FRAMEBUFFERS_ADDR>00000000</VFB_FRAMEBUFFERS_ADDR><VFB_MEM_PORT_WIDTH>32</VFB_MEM_PORT_WIDTH><VFB_MEM_MASTERS_USE_SEPARATE_CLOCK>false</VFB_MEM_MASTERS_USE_SEPARATE_CLOCK><VFB_RDATA_FIFO_DEPTH>1024</VFB_RDATA_FIFO_DEPTH><VFB_RDATA_BURST_TARGET>4</VFB_RDATA_BURST_TARGET><VFB_WDATA_FIFO_DEPTH>1024</VFB_WDATA_FIFO_DEPTH><VFB_WDATA_BURST_TARGET>4</VFB_WDATA_BURST_TARGET><VFB_MAX_NUMBER_PACKETS>1</VFB_MAX_NUMBER_PACKETS><VFB_MAX_SYMBOLS_IN_PACKET>10</VFB_MAX_SYMBOLS_IN_PACKET><VFB_INTERLACED_SUPPORT>0</VFB_INTERLACED_SUPPORT><VFB_CONTROLLED_DROP_REPEAT>0</VFB_CONTROLLED_DROP_REPEAT><VFB_BURST_ALIGNMENT>0</VFB_BURST_ALIGNMENT><VFB_DROP_INVALID_FIELDS>false</VFB_DROP_INVALID_FIELDS></frameBufferParams>]]></value>
+   <value><![CDATA[<frameBufferParams><VFB_NAME>MyFrameBuffer</VFB_NAME><VFB_MAX_WIDTH>640</VFB_MAX_WIDTH><VFB_MAX_HEIGHT>480</VFB_MAX_HEIGHT><VFB_BPS>8</VFB_BPS><VFB_CHANNELS_IN_SEQ>1</VFB_CHANNELS_IN_SEQ><VFB_CHANNELS_IN_PAR>3</VFB_CHANNELS_IN_PAR><VFB_WRITER_RUNTIME_CONTROL>false</VFB_WRITER_RUNTIME_CONTROL><VFB_DROP_FRAMES>true</VFB_DROP_FRAMES><VFB_READER_RUNTIME_CONTROL>false</VFB_READER_RUNTIME_CONTROL><VFB_REPEAT_FRAMES>true</VFB_REPEAT_FRAMES><VFB_FRAMEBUFFERS_ADDR>00000000</VFB_FRAMEBUFFERS_ADDR><VFB_MEM_PORT_WIDTH>32</VFB_MEM_PORT_WIDTH><VFB_MEM_MASTERS_USE_SEPARATE_CLOCK>false</VFB_MEM_MASTERS_USE_SEPARATE_CLOCK><VFB_RDATA_FIFO_DEPTH>1024</VFB_RDATA_FIFO_DEPTH><VFB_RDATA_BURST_TARGET>16</VFB_RDATA_BURST_TARGET><VFB_WDATA_FIFO_DEPTH>1024</VFB_WDATA_FIFO_DEPTH><VFB_WDATA_BURST_TARGET>16</VFB_WDATA_BURST_TARGET><VFB_MAX_NUMBER_PACKETS>1</VFB_MAX_NUMBER_PACKETS><VFB_MAX_SYMBOLS_IN_PACKET>10</VFB_MAX_SYMBOLS_IN_PACKET><VFB_INTERLACED_SUPPORT>0</VFB_INTERLACED_SUPPORT><VFB_CONTROLLED_DROP_REPEAT>0</VFB_CONTROLLED_DROP_REPEAT><VFB_BURST_ALIGNMENT>false</VFB_BURST_ALIGNMENT><VFB_DROP_INVALID_FIELDS>false</VFB_DROP_INVALID_FIELDS></frameBufferParams>]]></value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -3563,7 +3563,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>read_master_av_burstcount</name>
     <direction>Output</direction>
-    <width>3</width>
+    <width>5</width>
     <role>burstcount</role>
    </port>
    <memoryBlock>
@@ -3864,7 +3864,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>write_master_av_burstcount</name>
     <direction>Output</direction>
-    <width>3</width>
+    <width>5</width>
     <role>burstcount</role>
    </port>
    <memoryBlock>
@@ -7744,7 +7744,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <assignment>
    <name>embeddedsw.CMacro.READ_DEPTH</name>
-   <value>512</value>
+   <value>64</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.READ_THRESHOLD</name>
@@ -7752,7 +7752,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.WRITE_DEPTH</name>
-   <value>512</value>
+   <value>64</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.WRITE_THRESHOLD</name>
@@ -7792,7 +7792,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="readBufferDepth">
    <type>int</type>
-   <value>512</value>
+   <value>64</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -7824,7 +7824,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="useRegistersForReadBuffer">
    <type>boolean</type>
-   <value>false</value>
+   <value>true</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -7832,7 +7832,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="useRegistersForWriteBuffer">
    <type>boolean</type>
-   <value>false</value>
+   <value>true</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -7848,7 +7848,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="writeBufferDepth">
    <type>int</type>
-   <value>512</value>
+   <value>64</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -16066,7 +16066,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.USE_CTS_RTS</name>
-   <value>0</value>
+   <value>1</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.USE_EOP_REGISTER</name>
@@ -16178,7 +16178,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="useCtsRts">
    <type>boolean</type>
-   <value>false</value>
+   <value>true</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -16771,6 +16771,18 @@ parameters are a RESULT of the module parameters. -->
    </port>
    <port>
     <name>txd</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>cts_n</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>rts_n</name>
     <direction>Output</direction>
     <width>1</width>
     <role>export</role>
