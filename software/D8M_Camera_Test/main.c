@@ -9,9 +9,15 @@
 #include <string.h>
 
 #define EXPOSURE_INIT 0x001000
-#define GAIN_INIT 0x120
-#define FOCUS_INIT 150
+#define GAIN_INIT 0x400
+#define FOCUS_INIT 100
 #define DEFAULT_LEVEL 3
+
+#define FRAME_FIRST_LINE 5
+#define FRAME_LAST_LINE 475
+
+#define CMD_RESET_READ_POINTER 0x00
+#define CMD_READ_BLOCK 0x01
 
 #define MIPI_REG_PHYClkCtl		0x0056
 #define MIPI_REG_PHYData0Ctl	0x0058
@@ -25,6 +31,102 @@
 #define MIPI_REG_MDLSynErr		0x0068
 #define MIPI_REG_FrmErrCnt		0x0080
 #define MIPI_REG_MDLErrCnt		0x0090
+
+void mipi_clear_error(void);
+void mipi_show_error_info(void);
+void mipi_show_error_info_more(void);
+bool MIPI_Init(void);
+alt_u16 rgb888_to_rgb565(alt_u32 rgb888);
+
+int main() {
+
+	fprintf(stderr, "DE10-LITE D8M VGA Demo\n");
+	fprintf(stderr, "Imperial College EEE2 Project version\n");
+	IOWR(MIPI_PWDN_N_BASE, 0x00, 0x00);
+	IOWR(MIPI_RESET_N_BASE, 0x00, 0x00);
+
+	usleep(2000);
+	IOWR(MIPI_PWDN_N_BASE, 0x00, 0xFF);
+	usleep(2000);
+	IOWR(MIPI_RESET_N_BASE, 0x00, 0xFF);
+	usleep(2000);
+
+	// MIPI Init
+	if (!MIPI_Init()) {
+		fprintf(stderr, "MIPI_Init Init failed!\r\n");
+	} else {
+		fprintf(stderr, "MIPI_Init Init successfully!\r\n");
+	}
+
+	mipi_clear_error();
+	usleep(50 * 1000);
+	mipi_clear_error();
+	usleep(50 * 1000);
+	mipi_show_error_info();
+
+	OV8865SetExposure(EXPOSURE_INIT);
+	OV8865SetGain(GAIN_INIT);
+	OV8865_FOCUS_Move_to(FOCUS_INIT);
+
+	// Set ESP32 UART baud rate to 1M (with clock = 50M)
+	IOWR_ALTERA_AVALON_UART_DIVISOR(UART_0_BASE, 49);
+
+	// Output image dimensions: 320 * 236
+	while (1) {
+		static alt_u16 next_x, next_y;
+
+		fprintf(stderr, "Brewing tea... ");
+
+		alt_u8 instruction = fgetc(stdin);
+		if (instruction == CMD_RESET_READ_POINTER) {
+			next_x = 0;
+			next_y = FRAME_FIRST_LINE;
+			fprintf(stderr, "    Command from ESP32: 0x%02X CMD_RESET_READ_POINTER\n", instruction);
+		} else if (instruction == CMD_READ_BLOCK) {
+			alt_u8 length_lsb = fgetc(stdin);
+			alt_u8 length_msb = fgetc(stdin);
+			alt_u16 req_byte_count = (length_msb << 8) | length_lsb;
+			alt_u16 req_pixel_count = req_byte_count / 2;
+			fprintf(stderr, "    Command from ESP32: 0x%02X CMD_READ_BLOCK, param 0x%04X = %u\n", instruction, req_byte_count, req_byte_count);
+
+			for (unsigned i = 0; i < req_pixel_count; i++) {
+				alt_u32 pixel_index = next_y * 640 + next_x + 6;
+				alt_u16 pixel_rgb565 = rgb888_to_rgb565(IORD(SDRAM_BASE, pixel_index));
+
+				putchar(pixel_rgb565 & 0xff);
+				putchar((pixel_rgb565 >> 8) & 0xff);
+
+				next_x += 2;
+				if (next_x >= 640) {
+					next_x = 0;
+					next_y += 2;
+				}
+				if (next_y >= FRAME_LAST_LINE) {
+					next_y = FRAME_FIRST_LINE;
+				}
+			}
+		} else {
+			fprintf(stderr, "/!\\ Unknown command from ESP32: 0x%02X\n", instruction);
+		}
+
+
+//		for (alt_u16 y = 5; y < 476; y += 2) {
+//			fprintf(stderr, "%u ", y);
+//
+//			// Read one line from the framebuffer, skipping every other pixel, and compress into RGB565
+//			alt_u16 line[320];
+//			for(alt_u16 x = 0; x < 640; x += 2) {
+//				line[x / 2] = rgb888_to_rgb565(IORD(SDRAM_BASE, y * 640 + x + 6));
+//			}
+//
+//			// Dump to the UART
+//			fwrite(line, sizeof(line[0]), sizeof(line)/sizeof(line[0]), stdout);
+//		}
+//
+//		usleep(200 * 1000);
+	}
+}
+
 
 void mipi_clear_error(void) {
 	MipiBridgeRegWrite(MIPI_REG_CSIStatus, 0x01FF); // clear error
@@ -90,66 +192,6 @@ bool MIPI_Init(void) {
 	usleep(1000);
 
 	return bSuccess;
-}
-
-alt_u16 rgb888_to_rgb565(alt_u32 rgb888);
-
-int main() {
-
-	fprintf(stderr, "DE10-LITE D8M VGA Demo\n");
-	fprintf(stderr, "Imperial College EEE2 Project version\n");
-	IOWR(MIPI_PWDN_N_BASE, 0x00, 0x00);
-	IOWR(MIPI_RESET_N_BASE, 0x00, 0x00);
-
-	usleep(2000);
-	IOWR(MIPI_PWDN_N_BASE, 0x00, 0xFF);
-	usleep(2000);
-	IOWR(MIPI_RESET_N_BASE, 0x00, 0xFF);
-	usleep(2000);
-
-	// MIPI Init
-	if (!MIPI_Init()) {
-		fprintf(stderr, "MIPI_Init Init failed!\r\n");
-	} else {
-		fprintf(stderr, "MIPI_Init Init successfully!\r\n");
-	}
-
-	mipi_clear_error();
-	usleep(50 * 1000);
-	mipi_clear_error();
-	usleep(50 * 1000);
-	mipi_show_error_info();
-
-	OV8865SetExposure(EXPOSURE_INIT);
-	OV8865SetGain(GAIN_INIT);
-	OV8865_FOCUS_Move_to(FOCUS_INIT);
-
-	// Set ESP32 UART baud rate to 1M
-	IOWR_ALTERA_AVALON_UART_DIVISOR(UART_0_BASE, 49);
-
-	while (1) {
-
-		// Output image dimensions: 320 * 235
-
-		static alt_u32 frame_counter = 0;
-		fprintf(stderr, "\n\nSending frame %lu: ", frame_counter);
-		fputs("UUUUUUUUUUUUUUUw", stdout); // Sync word
-
-		for (alt_u16 y = 5; y < 476; y += 2) {
-			fprintf(stderr, "%u ", y);
-
-			alt_u16 line[320];
-			for (alt_u16 x = 0; x < 640; x += 2) {
-				alt_u32 pixel_offset = y * 640 + x + 5;
-				alt_u32 pixel = IORD(SDRAM_BASE, pixel_offset);
-				line[x / 2] = rgb888_to_rgb565(pixel);
-			}
-			fwrite(&line, sizeof(line), 1, stdout);
-		}
-
-		frame_counter++;
-		usleep(100 * 1000);
-	}
 }
 
 inline alt_u16 rgb888_to_rgb565(alt_u32 rgb888)
