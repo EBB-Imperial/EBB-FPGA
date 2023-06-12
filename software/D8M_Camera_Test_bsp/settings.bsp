@@ -2,11 +2,11 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>18.1</BspVersion>
-        <BspGeneratedTimeStamp>Jun 2, 2023 5:48:23 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1685724503319</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/home/shuyuan/Documents/College/Project/EBB-FPGA/software/D8M_Camera_Test_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>2023-6-12 14:25:59</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1686576359283</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\15026\Desktop\EBB_Imperial\EBB-FPGA\software\D8M_Camera_Test_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
-        <SopcDesignFile>../../Qsys.sopcinfo</SopcDesignFile>
+        <SopcDesignFile>..\..\Qsys.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_gen2</Cpu>
         <SchemaVersion>1.9</SchemaVersion>
@@ -386,7 +386,7 @@
                 <SettingName>hal.make.bsp_cflags_optimization</SettingName>
                 <Identifier>BSP_CFLAGS_OPTIMIZATION</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>-O0</Value>
+                <Value>-O2</Value>
                 <DefaultValue>-O0</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler optimization level. "-O0" = no optimization,"-O2" = "normal" optimization, etc. "-O0" is recommended for code that you want to debug since compiler optimization can remove variables and produce non-sequential execution of code while debugging. This setting defines the value of BSP_CFLAGS_OPTIMIZATION in Makefile.</Description>
@@ -878,7 +878,7 @@
                 <SettingName>altera_avalon_uart_driver.enable_small_driver</SettingName>
                 <Identifier>ALTERA_AVALON_UART_SMALL</Identifier>
                 <Type>BooleanDefineOnly</Type>
-                <Value>true</Value>
+                <Value>false</Value>
                 <DefaultValue>false</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Small-footprint (polled mode) driver</Description>
