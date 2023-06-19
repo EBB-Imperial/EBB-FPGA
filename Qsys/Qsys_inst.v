@@ -41,6 +41,7 @@
 		.uart_0_rx_tx_rxd                          (<connected-to-uart_0_rx_tx_rxd>),                          //                     uart_0_rx_tx.rxd
 		.uart_0_rx_tx_txd                          (<connected-to-uart_0_rx_tx_txd>),                          //                                 .txd
 		.uart_0_rx_tx_cts_n                        (<connected-to-uart_0_rx_tx_cts_n>),                        //                                 .cts_n
-		.uart_0_rx_tx_rts_n                        (<connected-to-uart_0_rx_tx_rts_n>)                         //                                 .rts_n
+		.uart_0_rx_tx_rts_n                        (<connected-to-uart_0_rx_tx_rts_n>),                        //                                 .rts_n
+		.led_external_connection_export            (<connected-to-led_external_connection_export>)             //          led_external_connection.export
 	);
 

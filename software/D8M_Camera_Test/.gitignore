@@ -1,4 +1,6 @@
 /obj/
+/mem_init/
+*.flash
 *.elf
 *.objdump
 

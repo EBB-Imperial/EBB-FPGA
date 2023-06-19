@@ -131,7 +131,7 @@ Qsys u0 (
 		.d8m_xclkin_clk                            (MIPI_REFCLK),				//                       d8m_xclkin.clk
 		
 //		.key_external_connection_export            (KEY),            			//          key_external_connection.export
-//		.led_external_connection_export            (),            				//          led_external_connection.export
+		.led_external_connection_export            (LEDR),            				//          led_external_connection.export
 //		.sw_external_connection_export             (SW),             			//           sw_external_connection.export
 		
 		.i2c_opencores_camera_export_scl_pad_io    (CAMERA_I2C_SCL),    		//      i2c_opencores_camera_export.scl_pad_io
@@ -178,8 +178,8 @@ Qsys u0 (
 		
 		.eee_imgproc_0_conduit_mode_new_signal     (SW[0]),
 		
-		.uart_0_rx_tx_rxd                          (ARDUINO_IO[1]),                          //                     uart_0_rx_tx.rxd
-		.uart_0_rx_tx_txd                          (ARDUINO_IO[0])                           //
+		.uart_0_rx_tx_rxd                          (ARDUINO_IO[8]),                          //                     uart_0_rx_tx.rxd
+		.uart_0_rx_tx_txd                          (ARDUINO_IO[9])                           //
 	);
 
 FpsMonitor uFps(

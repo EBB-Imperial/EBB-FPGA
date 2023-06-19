@@ -42,7 +42,8 @@ module Qsys (
 	uart_0_rx_tx_rxd,
 	uart_0_rx_tx_txd,
 	uart_0_rx_tx_cts_n,
-	uart_0_rx_tx_rts_n);	
+	uart_0_rx_tx_rts_n,
+	led_external_connection_export);	
 
 	input		alt_vip_itc_0_clocked_video_vid_clk;
 	output	[23:0]	alt_vip_itc_0_clocked_video_vid_data;
@@ -87,4 +88,5 @@ module Qsys (
 	output		uart_0_rx_tx_txd;
 	input		uart_0_rx_tx_cts_n;
 	output		uart_0_rx_tx_rts_n;
+	output	[9:0]	led_external_connection_export;
 endmodule
