@@ -57,26 +57,26 @@ always @ (posedge clk50)
     fps_l  <= rfps_l;
   end
 
-assign hex_fps_h = (fps_h == 4'd0)?7'h40: //0
-                   (fps_h == 4'd1)?7'h79: //1
-				   	 (fps_h == 4'd2)?7'h24: //2
-                   (fps_h == 4'd3)?7'h30: //3
-				   	 (fps_h == 4'd4)?7'h19: //4        
-				    	 (fps_h == 4'd5)?7'h12: //5
-					    (fps_h == 4'd6)?7'h02: //6
-					    (fps_h == 4'd7)?7'h78: //7
-					    (fps_h == 4'd8)?7'h00: //8
-                                   7'h10; //9
+assign hex_fps_h = (fps_h == 4'd0)?8'hC0: //0
+                   (fps_h == 4'd1)?8'hF9: //1
+				   	 (fps_h == 4'd2)?8'hA4: //2
+                   (fps_h == 4'd3)?8'hB0: //3
+				   	 (fps_h == 4'd4)?8'h99: //4        
+				    	 (fps_h == 4'd5)?8'h92: //5
+					    (fps_h == 4'd6)?8'h82: //6
+					    (fps_h == 4'd7)?8'hF8: //7
+					    (fps_h == 4'd8)?8'h80: //8
+                                   7'h90; //9
 											  
-assign hex_fps_l = (fps_l == 4'd0)?7'h40: //0
-                   (fps_l == 4'd1)?7'h79: //1
-				   	 (fps_l == 4'd2)?7'h24: //2
-                   (fps_l == 4'd3)?7'h30: //3
-				   	 (fps_l == 4'd4)?7'h19: //4        
-				    	 (fps_l == 4'd5)?7'h12: //5
-					    (fps_l == 4'd6)?7'h02: //6
-					    (fps_l == 4'd7)?7'h78: //7
-					    (fps_l == 4'd8)?7'h00: //8
-                                   7'h10; //9
+assign hex_fps_l = (fps_l == 4'd0)?8'hC0: //0
+                   (fps_l == 4'd1)?8'hF9: //1
+				   	 (fps_l == 4'd2)?8'hA4: //2
+                   (fps_l == 4'd3)?8'hB0: //3
+				   	 (fps_l == 4'd4)?8'h99: //4        
+				    	 (fps_l == 4'd5)?8'h92: //5
+					    (fps_l == 4'd6)?8'h82: //6
+					    (fps_l == 4'd7)?8'hF8: //7
+					    (fps_l == 4'd8)?8'h80: //8
+                                   8'h90; //9
 endmodule
 

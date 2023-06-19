@@ -20,6 +20,7 @@
 			i2c_opencores_camera_export_sda_pad_io    : inout std_logic                     := 'X';             -- sda_pad_io
 			i2c_opencores_mipi_export_scl_pad_io      : inout std_logic                     := 'X';             -- scl_pad_io
 			i2c_opencores_mipi_export_sda_pad_io      : inout std_logic                     := 'X';             -- sda_pad_io
+			led_external_connection_export            : out   std_logic_vector(9 downto 0);                     -- export
 			mipi_pwdn_n_external_connection_export    : out   std_logic;                                        -- export
 			mipi_reset_n_external_connection_export   : out   std_logic;                                        -- export
 			reset_reset_n                             : in    std_logic                     := 'X';             -- reset_n
@@ -42,8 +43,7 @@
 			uart_0_rx_tx_rxd                          : in    std_logic                     := 'X';             -- rxd
 			uart_0_rx_tx_txd                          : out   std_logic;                                        -- txd
 			uart_0_rx_tx_cts_n                        : in    std_logic                     := 'X';             -- cts_n
-			uart_0_rx_tx_rts_n                        : out   std_logic;                                        -- rts_n
-			led_external_connection_export            : out   std_logic_vector(9 downto 0)                      -- export
+			uart_0_rx_tx_rts_n                        : out   std_logic                                         -- rts_n
 		);
 	end component Qsys;
 
@@ -69,6 +69,7 @@
 			i2c_opencores_camera_export_sda_pad_io    => CONNECTED_TO_i2c_opencores_camera_export_sda_pad_io,    --                                 .sda_pad_io
 			i2c_opencores_mipi_export_scl_pad_io      => CONNECTED_TO_i2c_opencores_mipi_export_scl_pad_io,      --        i2c_opencores_mipi_export.scl_pad_io
 			i2c_opencores_mipi_export_sda_pad_io      => CONNECTED_TO_i2c_opencores_mipi_export_sda_pad_io,      --                                 .sda_pad_io
+			led_external_connection_export            => CONNECTED_TO_led_external_connection_export,            --          led_external_connection.export
 			mipi_pwdn_n_external_connection_export    => CONNECTED_TO_mipi_pwdn_n_external_connection_export,    --  mipi_pwdn_n_external_connection.export
 			mipi_reset_n_external_connection_export   => CONNECTED_TO_mipi_reset_n_external_connection_export,   -- mipi_reset_n_external_connection.export
 			reset_reset_n                             => CONNECTED_TO_reset_reset_n,                             --                            reset.reset_n
@@ -91,7 +92,6 @@
 			uart_0_rx_tx_rxd                          => CONNECTED_TO_uart_0_rx_tx_rxd,                          --                     uart_0_rx_tx.rxd
 			uart_0_rx_tx_txd                          => CONNECTED_TO_uart_0_rx_tx_txd,                          --                                 .txd
 			uart_0_rx_tx_cts_n                        => CONNECTED_TO_uart_0_rx_tx_cts_n,                        --                                 .cts_n
-			uart_0_rx_tx_rts_n                        => CONNECTED_TO_uart_0_rx_tx_rts_n,                        --                                 .rts_n
-			led_external_connection_export            => CONNECTED_TO_led_external_connection_export             --          led_external_connection.export
+			uart_0_rx_tx_rts_n                        => CONNECTED_TO_uart_0_rx_tx_rts_n                         --                                 .rts_n
 		);
 

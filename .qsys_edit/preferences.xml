@@ -7,7 +7,6 @@
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Project,Library,Library/Processors and Peripherals,Library/Interface Protocols/PCI Express,Library/Processors and Peripherals/Peripherals,Library/Interface Protocols,Library/Interface Protocols/PCI Express/QSYS Example Designs" />
- <window width="1920" height="1011" x="0" y="69" />
+ <library expandedCategories="Library,Project" />
+ <window width="1920" height="1011" x="1280" y="65" />
 </preferences>

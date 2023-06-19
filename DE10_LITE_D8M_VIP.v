@@ -124,7 +124,7 @@ end
 
 Qsys u0 (
 		.clk_clk                                   (MAX10_CLK1_50), 			//                              clk.clk
-		.reset_reset_n                             (1'b1), 						//                            reset.reset_n
+		.reset_reset_n                             (KEY[0] | KEY[1]), 						//                            reset.reset_n
 		
 		.clk_sdram_clk                             (DRAM_CLK),					//                        clk_sdram.clk
 		.clk_vga_clk                               (disp_clk),					//                          clk_vga.clk
@@ -191,9 +191,9 @@ FpsMonitor uFps(
 	.hex_fps_l(HEX0)
 );
 
-assign  HEX2 = 7'h7F;
-assign  HEX3 = 7'h7F;
-assign  HEX4 = 7'h7F;
-assign  HEX5 = 7'h7F;
+assign  HEX2 = 8'hFF;
+assign  HEX3 = 8'hFF;
+assign  HEX4 = 8'hFF;
+assign  HEX5 = 8'hFF;
 
 endmodule

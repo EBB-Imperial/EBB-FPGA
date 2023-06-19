@@ -6,6 +6,7 @@
 
 #include <system.h>
 #include <altera_avalon_uart_regs.h>
+#include <altera_avalon_pio_regs.h>
 #include <string.h>
 
 #define EXPOSURE_INIT 0x001000
@@ -39,6 +40,7 @@ bool MIPI_Init(void);
 alt_u16 rgb888_to_rgb565(alt_u32 rgb888);
 
 int main() {
+	IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE, 0b0000011111); // For debugging: light up LEDs to show firmware is running
 
 	fprintf(stderr, "DE10-LITE D8M VGA Demo\n");
 	fprintf(stderr, "Imperial College EEE2 Project version\n");
@@ -106,7 +108,7 @@ int main() {
 				}
 			}
 		} else {
-			fprintf(stderr, "/!\\ Unknown command from ESP32: 0x%02X\n", instruction);
+			fprintf(stderr, "!!! Unknown command from ESP32: 0x%02X\n", instruction);
 		}
 
 

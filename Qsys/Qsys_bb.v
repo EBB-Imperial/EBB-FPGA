@@ -20,6 +20,7 @@ module Qsys (
 	i2c_opencores_camera_export_sda_pad_io,
 	i2c_opencores_mipi_export_scl_pad_io,
 	i2c_opencores_mipi_export_sda_pad_io,
+	led_external_connection_export,
 	mipi_pwdn_n_external_connection_export,
 	mipi_reset_n_external_connection_export,
 	reset_reset_n,
@@ -42,8 +43,7 @@ module Qsys (
 	uart_0_rx_tx_rxd,
 	uart_0_rx_tx_txd,
 	uart_0_rx_tx_cts_n,
-	uart_0_rx_tx_rts_n,
-	led_external_connection_export);	
+	uart_0_rx_tx_rts_n);	
 
 	input		alt_vip_itc_0_clocked_video_vid_clk;
 	output	[23:0]	alt_vip_itc_0_clocked_video_vid_data;
@@ -65,6 +65,7 @@ module Qsys (
 	inout		i2c_opencores_camera_export_sda_pad_io;
 	inout		i2c_opencores_mipi_export_scl_pad_io;
 	inout		i2c_opencores_mipi_export_sda_pad_io;
+	output	[9:0]	led_external_connection_export;
 	output		mipi_pwdn_n_external_connection_export;
 	output		mipi_reset_n_external_connection_export;
 	input		reset_reset_n;
@@ -88,5 +89,4 @@ module Qsys (
 	output		uart_0_rx_tx_txd;
 	input		uart_0_rx_tx_cts_n;
 	output		uart_0_rx_tx_rts_n;
-	output	[9:0]	led_external_connection_export;
 endmodule
