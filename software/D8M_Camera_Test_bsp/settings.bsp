@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>18.1</BspVersion>
-        <BspGeneratedTimeStamp>Jun 19, 2023 11:40:04 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1687171204743</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Jun 19, 2023 2:43:18 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1687182198352</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/shuyuan/Documents/College/Project/EBB-FPGA/software/D8M_Camera_Test_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Qsys.sopcinfo</SopcDesignFile>
@@ -386,7 +386,7 @@
                 <SettingName>hal.make.bsp_cflags_optimization</SettingName>
                 <Identifier>BSP_CFLAGS_OPTIMIZATION</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>-O0</Value>
+                <Value>-O2</Value>
                 <DefaultValue>-O0</DefaultValue>
                 <DestinationFile>makefile_variable</DestinationFile>
                 <Description>C/C++ compiler optimization level. "-O0" = no optimization,"-O2" = "normal" optimization, etc. "-O0" is recommended for code that you want to debug since compiler optimization can remove variables and produce non-sequential execution of code while debugging. This setting defines the value of BSP_CFLAGS_OPTIMIZATION in Makefile.</Description>
@@ -878,7 +878,7 @@
                 <SettingName>altera_avalon_uart_driver.enable_small_driver</SettingName>
                 <Identifier>ALTERA_AVALON_UART_SMALL</Identifier>
                 <Type>BooleanDefineOnly</Type>
-                <Value>true</Value>
+                <Value>false</Value>
                 <DefaultValue>false</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Small-footprint (polled mode) driver</Description>
@@ -930,67 +930,73 @@
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
-                <addressRange>0x00100000 - 0x0010FFFF</addressRange>
-                <addressSpan>65536</addressSpan>
+                <addressRange>0x00120000 - 0x0013FFFF</addressRange>
+                <addressSpan>131072</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>uart_0</slaveDescriptor>
+                <slaveDescriptor>led</slaveDescriptor>
                 <addressRange>0x00141000 - 0x0014101F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>uart_0</slaveDescriptor>
+                <addressRange>0x00141020 - 0x0014103F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>EEE_IMGPROC_0</slaveDescriptor>
-                <addressRange>0x00141020 - 0x0014103F</addressRange>
+                <addressRange>0x00141040 - 0x0014105F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>timer</slaveDescriptor>
-                <addressRange>0x00141040 - 0x0014105F</addressRange>
+                <addressRange>0x00141060 - 0x0014107F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>TERASIC_AUTO_FOCUS_0</slaveDescriptor>
-                <addressRange>0x00141060 - 0x0014107F</addressRange>
-                <addressSpan>32</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>i2c_opencores_camera</slaveDescriptor>
                 <addressRange>0x00141080 - 0x0014109F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>i2c_opencores_mipi</slaveDescriptor>
+                <slaveDescriptor>i2c_opencores_camera</slaveDescriptor>
                 <addressRange>0x001410A0 - 0x001410BF</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>i2c_opencores_mipi</slaveDescriptor>
+                <addressRange>0x001410C0 - 0x001410DF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>mipi_pwdn_n</slaveDescriptor>
-                <addressRange>0x001410C0 - 0x001410CF</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>mipi_reset_n</slaveDescriptor>
-                <addressRange>0x001410D0 - 0x001410DF</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>altpll_0</slaveDescriptor>
                 <addressRange>0x001410E0 - 0x001410EF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>mipi_reset_n</slaveDescriptor>
+                <addressRange>0x001410F0 - 0x001410FF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>altpll_0</slaveDescriptor>
+                <addressRange>0x00141100 - 0x0014110F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x001410F0 - 0x001410F7</addressRange>
+                <addressRange>0x00141110 - 0x00141117</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
@@ -1002,11 +1008,11 @@
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>
-                <regionName>onchip_flash_0</regionName>
+                <regionName>onchip_memory2_0</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.rodata</sectionName>
-                <regionName>onchip_flash_0</regionName>
+                <regionName>onchip_memory2_0</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.rwdata</sectionName>

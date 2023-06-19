@@ -19,6 +19,7 @@
 		.i2c_opencores_camera_export_sda_pad_io    (<connected-to-i2c_opencores_camera_export_sda_pad_io>),    //                                 .sda_pad_io
 		.i2c_opencores_mipi_export_scl_pad_io      (<connected-to-i2c_opencores_mipi_export_scl_pad_io>),      //        i2c_opencores_mipi_export.scl_pad_io
 		.i2c_opencores_mipi_export_sda_pad_io      (<connected-to-i2c_opencores_mipi_export_sda_pad_io>),      //                                 .sda_pad_io
+		.led_external_connection_export            (<connected-to-led_external_connection_export>),            //          led_external_connection.export
 		.mipi_pwdn_n_external_connection_export    (<connected-to-mipi_pwdn_n_external_connection_export>),    //  mipi_pwdn_n_external_connection.export
 		.mipi_reset_n_external_connection_export   (<connected-to-mipi_reset_n_external_connection_export>),   // mipi_reset_n_external_connection.export
 		.reset_reset_n                             (<connected-to-reset_reset_n>),                             //                            reset.reset_n
@@ -41,7 +42,6 @@
 		.uart_0_rx_tx_rxd                          (<connected-to-uart_0_rx_tx_rxd>),                          //                     uart_0_rx_tx.rxd
 		.uart_0_rx_tx_txd                          (<connected-to-uart_0_rx_tx_txd>),                          //                                 .txd
 		.uart_0_rx_tx_cts_n                        (<connected-to-uart_0_rx_tx_cts_n>),                        //                                 .cts_n
-		.uart_0_rx_tx_rts_n                        (<connected-to-uart_0_rx_tx_rts_n>),                        //                                 .rts_n
-		.led_external_connection_export            (<connected-to-led_external_connection_export>)             //          led_external_connection.export
+		.uart_0_rx_tx_rts_n                        (<connected-to-uart_0_rx_tx_rts_n>)                         //                                 .rts_n
 	);
 
